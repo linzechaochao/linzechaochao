@@ -1,0 +1,63 @@
+{
+    "components": {
+        "Reader_0": {
+            "module": "Reader_0",
+            "output": {
+                "data": [
+                    "data"
+                ]
+            }
+        },
+        "DataIO_0": {
+            "module": "DataIO_0",
+            "input": {
+                "data": {
+                    "data": [
+                        "Reader_0.data"
+                    ]
+                }
+            },
+            "output": {
+                "data": [
+                    "data"
+                ],
+                "model": [
+                    "model"
+                ]
+            }
+        },
+        "HeteroLR_0": {
+            "module": "HeteroLR_0",
+            "input": {
+                "data": {
+                    "data": [
+                        "DataIO_0.data"
+                    ]
+                },
+                "model": [
+                    "DataIO_0.model"
+                ]
+            },
+            "output": {
+                "data": [
+                    "data"
+                ]
+            }
+        },
+        "Evaluation_0": {
+            "module": "Evaluation_0",
+            "input": {
+                "data": {
+                    "data": [
+                        "HeteroLR_0.data"
+                    ]
+                }
+            },
+            "output": {
+                "data": [
+                    "data"
+                ]
+            }
+        }
+    }
+}

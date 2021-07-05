@@ -1,0 +1,88 @@
+{
+    "dsl_version": 2,
+    "initiator": {
+        "role": "guest",
+        "party_id": 9999
+    },
+    "role": {
+        "guest": [
+            9999
+        ],
+        "host": [
+            10000
+        ],
+        "arbiter": [
+            10000
+        ]
+    },
+    "job_parameters": {
+        "common": {
+            "job_type": "train",
+            "backend": 0,
+            "work_mode": 1
+        }
+    },
+    "component_parameters": {
+        "common": {
+            "evaluation_0": {
+                "eval_type": "binary"
+            },
+            "dataio_0": {
+                "output_format": "dense"
+            },
+            "hetero_lr_0": {
+                "penalty": "L222222222222222222",
+                "tol": "0.0001",
+                "alpha": "0.01",
+                "optimizer": "rmsprop",
+                "batch_size": "-1",
+                "learning_rate": "0.15",
+                "init_param": {
+                    "init_method": "zeros"
+                },
+                "max_iter": "30",
+                "early_stop": "diff",
+                "cv_param": {
+                    "n_splits": "5",
+                    "shuffle": "false",
+                    "random_seed": "103",
+                    "need_cv": "false"
+                },
+                "sqn_param": {
+                    "update_interval_L": "3",
+                    "memory_M": "5",
+                    "sample_size": "5000",
+                    "random_seed": "103"
+                }
+            }
+        },
+        "role": {
+            "host": {
+                "0": {
+                    "reader_0": {
+                        "table": {
+                            "name": "give_credit_hetero_host",
+                            "namespace": "experiment"
+                        }
+                    },
+                    "dataio_0": {
+                        "with_label": "false"
+                    }
+                }
+            },
+            "guest": {
+                "0": {
+                    "reader_0": {
+                        "table": {
+                            "name": "give_credit_hetero_guest",
+                            "namespace": "experiment"
+                        }
+                    },
+                    "dataio_0": {
+                        "with_label": "true"
+                    }
+                }
+            }
+        }
+    }
+}
